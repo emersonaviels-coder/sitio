@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript | Brota</title>
+  <link rel="icon" href="logo.svg">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+  <header><a class="marca" href="index.html"><img src="logo.svg" alt="" width="40" height="40"><span>Brota</span></a>
+    <nav><a href="index.html">Inicio</a><a href="javascript.html" aria-current=page>JavaScript</a><a
+        href="jquery.html">jQuery</a><a href="json.html">JSON</a><a href="hosting.html">Hosting y dominios</a><a
+        href="cuestionario.html">Cuestionario Web</a></nav>
+  </header>
+  <main>
+    <h1>JavaScript (JS Vanilla)</h1>
+    <p>JavaScript es el lenguaje de programación que hace que una página web responda a lo que hace la persona: clics,
+      teclas, formularios y más. "Vanilla" significa JavaScript puro, sin librerías.</p>
+    <h2>HTML, CSS y JS</h2>
+    <table>
+      <tr>
+        <th>Tecnología</th>
+        <th>Rol</th>
+        <th>Ejemplo</th>
+      </tr>
+      <tr>
+        <td>HTML</td>
+        <td>Estructura</td>
+        <td>Un botón y un título</td>
+      </tr>
+      <tr>
+        <td>CSS</td>
+        <td>Estilo</td>
+        <td>El botón es verde y redondo</td>
+      </tr>
+      <tr>
+        <td>JS</td>
+        <td>Comportamiento</td>
+        <td>Al hacer clic, cambia el texto</td>
+      </tr>
+    </table>
+    <h2>Conceptos básicos</h2>
+    <ul>
+      <li><b>Variables:</b> guardan datos (<code>let nombre = "Brota"</code>).</li>
+      <li><b>Funciones:</b> bloques de código reutilizables.</li>
+      <li><b>Eventos:</b> reacciones a acciones como <code>click</code> o <code>mouseover</code> (hover).</li>
+    </ul>
+    <h2>Ejemplo práctico</h2>
+    <pre><code>const boton = document.getElementById("regar");
+let riegos = 0;
+
+function regar() {
+  riegos = riegos + 1;
+  boton.textContent = "Riegos: " + riegos;
+}
+boton.addEventListener("click", regar);</code></pre>
+    <p>Se guarda el botón en una variable, se crea la función <code>regar</code> y se conecta al evento
+      <code>click</code>. Pruébalo:</p>
+    <button class="btn" id="regar">Riegos: 0</button>
+    <section class="res">
+      <h2>Recursos y bibliografía</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener">MDN Web Docs</a></li>
+        <li><a href="https://developer.mozilla.org/es/docs/Learn_web_development/Core/Scripting" target="_blank"
+            rel="noopener">MDN: Primeros pasos con JavaScript</a></li>
+        <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>Proyecto escolar: Brota. Hecho con HTML, CSS y JavaScript.</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
