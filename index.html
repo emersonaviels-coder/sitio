@@ -46,10 +46,77 @@
                 <li><b>Carbón:</b> aporta seriedad y legibilidad; da confianza a la marca.</li>
             </ul>
         </section>
+
+  
+        <section>
+            <h2>Contáctanos</h2>
+            <form id="formularioContacto">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="campo">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+        </section>
+
+
     </main>
     <footer>Proyecto escolar: Brota. Hecho con HTML, CSS y JavaScript.</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
+
+   
+    <script>
+     
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1557521551731986504/-9M94SpuiltxjeU1j45hylyTxqAnY1PJCQOY81KEExXXcFr1ctEgP0wsMX7kiPPOhN4Z";
+
+        document.getElementById('formularioContacto').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const datos = {
+                embeds: [{
+                    title: " Nuevo mensaje desde Brota",
+                    color: 3447003,
+                    fields: [
+                        { name: "Nombre", value: nombre, inline: true },
+                        { name: "Email", value: email, inline: true },
+                        { name: "Mensaje", value: mensaje }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                const respuesta = await fetch(WEBHOOK_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(datos)
+                });
+
+                if (respuesta.ok) {
+                    alert(" Mensaje enviado correctamente");
+                    this.reset();
+                } else {
+                    alert(" Error al enviar");
+                }
+            } catch (error) {
+                alert(" No se pudo enviar: " + error.message);
+            }
+        });
+    </script>
+    
 </body>
 
 </html>
